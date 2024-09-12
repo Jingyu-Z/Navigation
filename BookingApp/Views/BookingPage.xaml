@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BookingApp.Views.BookingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:styles="clr-namespace:BookingApp.Styles"
+   >
+    <Grid Padding="10" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <Label
+            Grid.Row="0"
+            FontAttributes="Bold"
+            FontSize="30"
+            HorizontalOptions="Center"
+            Text="Book A Room" />
+
+        <!--  Rooms Display  -->
+        <CollectionView
+            x:Name="RoomsCollectionView"
+            Grid.Row="1"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="0,0,15,0"
+                        Padding="10"
+                        BackgroundColor="White"
+                        BorderColor="LightGray"
+                        CornerRadius="15"
+                        HasShadow="True">
+                        <StackLayout Spacing="10">
+                            <styles:RoomLabel
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding RoomName}" />
+                            <styles:RoomLabel Text="{Binding RoomNumber}" />
+                            <styles:RoomLabel Text="{Binding FieldOfStudy}" />
+                            <styles:RoomLabel Margin="0,5,0,0" Text="{Binding Description}" />
+
+                            <!--  Select Room Button  -->
+                            <styles:RoomSelectButton
+                                Margin="0,10,0,0"
+                                Command="{Binding SelectRoomCommand}"
+                                Text="Select Room" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--  Back Button  -->
+        <styles:MainButton
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            Text="Back" />
+    </Grid>
+</ContentPage>

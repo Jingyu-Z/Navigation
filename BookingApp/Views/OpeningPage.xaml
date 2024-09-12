@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BookingApp.Views.OpeningPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:styles="clr-namespace:BookingApp.Styles">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <!--  Welcome Message  -->
+            <Label
+                x:Name="WelcomeLabel"
+                Margin="0,0,0,10"
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center" />
+
+            <!--  Feature Description  -->
+            <styles:RoomLabel
+                Margin="0,0,0,30"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Easily find and book study rooms on campus. Manage your bookings, and stay organized with our user-friendly interface."
+                TextColor="Gray" />
+
+            <!--  Book A Room Button  -->
+            <styles:MainButton
+                Margin="0,10,0,10"
+                Command="{Binding BookRoomCommand}"
+                HorizontalOptions="Center"
+                Text="Book A Room" />
+
+            <!--  Manage Your Bookings Button  -->
+            <styles:MainButton
+                Margin="0,10,0,10"
+                Command="{Binding ManageBooksCommand}"
+                HorizontalOptions="Center"
+                Text="Profile" />
+
+            <!--  Additional Information or Links  -->
+            <styles:RoomLabel
+                Margin="0,30,0,0"
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="Need Help? Visit our FAQ or contact support."
+                TextColor="Gray" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
